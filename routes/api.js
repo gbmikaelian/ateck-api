@@ -6,6 +6,7 @@ const router = new Router();
 
 router.get('/me', userController.me);
 router.get('/places', userController.places);
+router.get('/place-filter', userController.placeFilter);
 router.delete('/place/:id', userController.deletePlace);
 router.patch('/place/:id', userController.markToggleVisit);
 router.get('/place', userController.getPlaceById);

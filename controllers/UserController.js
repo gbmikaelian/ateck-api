@@ -11,15 +11,26 @@ export default class extends Controller {
         }
     }
 
+    placeFilter = async (req, res) => {
+        try {
+            const query = { placeName: { $regex: `.*${req.query.filterPlaceName}.*` } };
+            const filteredPlaces = await Place.find(query).sort('-createdAt');
+            return res.json({ success: true, filteredPlaces });
+        } catch (e) {
+            console.log(e);
+            return res.json({ success: false, error: e.message });
+        }
+    }
+
     places = async (req, res) => {
         try {
             let places = [];
             const placeVisited = Boolean(req.query.placeVisited);
 
             if (placeVisited) {
-                places = await Place.find({ placeVisited: false });
+                places = await Place.find({ placeVisited: false }).sort('-createdAt');
             } else {
-                places = await Place.find();
+                places = await Place.find().sort('-createdAt');
             }
 
             return res.json({ success: true, places });
