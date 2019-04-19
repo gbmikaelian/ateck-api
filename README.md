@@ -1,21 +1,28 @@
 ## Getting started
+#
+# Install dependency
+```
+yarn install
+```
+### Create .env
 
-```bash
-# clone the project
-git clone https://github.com/gbmikaelian/node-babel.git
+```
+cp .env.example .env
+```
+# db
+### mongodb
+#
 
-# install dependency
-npm install
-
-# develop
-npm start
+# Run api 
+```
+yarn start
 ```
 
-Your host http://localhost:3000.
+Your host http://localhost:4000.
 
 ## Advanced
 
-# auto fix
-npm run lint -- --fix
+# Auto fix
+yarn lint
 
 Copyright (c) 2018-present Garik Mikaelian
